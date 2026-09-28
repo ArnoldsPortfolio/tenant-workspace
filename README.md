@@ -2,23 +2,26 @@
 
 ```
 tenant-workspace/
-  backend/      Python FastAPI
-  frontend/     TypeScript Next.js
+  backend/
+    apps/          FastAPI (Python)
+  frontend/
+    apps/          Next.js (TypeScript)
   README.md
 ```
 
-If your clone still has `apps/api` and `apps/web`, rename them once:
+If you still have the old `apps/api` and `apps/web` folders, move them in once:
 
 ```bash
 cd tenant-workspace
-mv apps/api backend
-mv apps/web frontend
+mkdir -p backend/apps frontend/apps
+mv apps/api/* backend/apps/
+mv apps/web/* frontend/apps/
 ```
 
 ## Backend
 
 ```bash
-cd backend
+cd backend/apps
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -30,11 +33,9 @@ http://127.0.0.1:8000/docs
 ## Frontend
 
 ```bash
-cd frontend
+cd frontend/apps
 npm install
 npm run dev
 ```
 
 http://localhost:3000
-
-Seed login: `owner@workspace.dev` / `ChangeMe123!`
