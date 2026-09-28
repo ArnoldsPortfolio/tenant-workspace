@@ -3,70 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tenant Workspace</title>
-  <style>
-    :root { --ink:#0f172a; --muted:#475569; --line:#e2e8f0; --teal:#0f766e; --bg:#f8fafc; }
-    * { box-sizing: border-box; }
-    body { margin: 0; font: 16px/1.45 Georgia, serif; color: var(--ink); background: var(--bg); }
-    header { background: var(--ink); color: #fff; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-    header a { color: #99f6e4; margin-left: 1rem; font-size: .9rem; }
-    main { max-width: 960px; margin: 0 auto; padding: 1.25rem; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .card { background: #fff; border: 1px solid var(--line); padding: 1rem; }
-    h2 { margin: 0 0 .75rem; font-size: 1.15rem; }
-    input { width: 100%; margin: .25rem 0 .5rem; padding: .45rem .55rem; font: inherit; border: 1px solid var(--line); }
-    button { font: inherit; background: var(--teal); color: #fff; border: 0; padding: .45rem .8rem; cursor: pointer; }
-    button.ghost { background: #fff; color: var(--teal); border: 1px solid var(--teal); }
-    .row { display: flex; gap: .5rem; align-items: center; }
-    .muted { color: var(--muted); font-size: .92rem; }
-    .item { border-top: 1px solid var(--line); padding: .55rem 0; }
-    .err { color: #b91c1c; min-height: 1.2em; }
-    .ok { color: var(--teal); }
-    @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
-  </style>
+  <title>Sign in · Tenant Workspace</title>
+  <link rel="stylesheet" href="/assets/shell.css" />
 </head>
-<body>
-  <header>
-    <strong>Tenant Workspace</strong>
-    <nav><a href="/docs">API docs</a><a href="/health">Health</a></nav>
-  </header>
-  <main>
-    <p class="muted" id="who">Not signed in.</p>
+<body class="auth">
+  <main class="auth-card">
+    <p class="kicker">Tenant Workspace</p>
+    <h1>Sign in</h1>
+    <p class="muted" id="who">Use the seed owner or create an account.</p>
     <p class="err" id="err"></p>
-    <div class="grid">
-      <section class="card">
-        <h2>Sign in</h2>
-        <input id="email" type="email" value="owner@workspace.dev" />
-        <input id="password" type="password" value="ChangeMe123!" />
-        <div class="row">
-          <button type="button" id="btnIn">Sign in</button>
-          <button type="button" class="ghost" id="btnUp">Create account</button>
-        </div>
-      </section>
-      <section class="card">
-        <h2>Workspaces</h2>
-        <div class="row">
-          <input id="wsname" value="New workspace" />
-          <button type="button" id="btnWs">Create</button>
-        </div>
-        <div id="workspaces"></div>
-      </section>
-      <section class="card">
-        <h2>Projects</h2>
-        <p class="muted" id="wsLabel">Select a workspace.</p>
-        <div class="row">
-          <input id="ptitle" value="New project" />
-          <button type="button" id="btnProj">Add</button>
-        </div>
-        <div id="projects"></div>
-      </section>
-      <section class="card">
-        <h2>Billing and audit</h2>
-        <div id="billing" class="muted">Select a workspace.</div>
-        <div id="audit"></div>
-      </section>
+    <label>Email</label>
+    <input id="email" type="email" value="owner@workspace.dev" />
+    <label>Password</label>
+    <input id="password" type="password" value="ChangeMe123!" />
+    <div class="row">
+      <button type="button" id="btnIn">Sign in</button>
+      <button type="button" class="ghost" id="btnUp">Create account</button>
     </div>
   </main>
-  <script src="/assets/app.js"></script>
+  <script src="/assets/login.js"></script>
 </body>
 </html>

@@ -45,12 +45,20 @@ if STATIC.exists():
     app.mount("/assets", StaticFiles(directory=STATIC), name="assets")
 
 @app.get("/")
-def home():
+def login_page():
     return FileResponse(STATIC / "index.html")
 
-@app.get("/ui")
-def ui():
+@app.get("/login")
+def login_alias():
     return FileResponse(STATIC / "index.html")
+
+@app.get("/app")
+def dashboard_page():
+    return FileResponse(STATIC / "dashboard.html")
+
+@app.get("/ui")
+def ui_alias():
+    return FileResponse(STATIC / "dashboard.html")
 
 @app.get("/health")
 def health():

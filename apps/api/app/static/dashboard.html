@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard · Tenant Workspace</title>
+  <link rel="stylesheet" href="/assets/shell.css" />
+</head>
+<body class="dash">
+  <aside>
+    <strong>Tenant Workspace</strong>
+    <p class="muted" id="who">Loading…</p>
+    <nav>
+      <button type="button" class="tab on" data-tab="workspaces">Workspaces</button>
+      <button type="button" class="tab" data-tab="projects">Projects</button>
+      <button type="button" class="tab" data-tab="billing">Billing</button>
+      <button type="button" class="tab" data-tab="audit">Audit</button>
+    </nav>
+    <button type="button" class="ghost" id="btnOut">Sign out</button>
+  </aside>
+  <main>
+    <p class="err" id="err"></p>
+    <section id="panel-workspaces" class="panel on">
+      <h1>Workspaces</h1>
+      <div class="row">
+        <input id="wsname" value="New workspace" />
+        <button type="button" id="btnWs">Create</button>
+      </div>
+      <div id="workspaces"></div>
+    </section>
+    <section id="panel-projects" class="panel">
+      <h1>Projects</h1>
+      <p class="muted" id="wsLabel">Select a workspace first.</p>
+      <div class="row">
+        <input id="ptitle" value="New project" />
+        <button type="button" id="btnProj">Add</button>
+      </div>
+      <div id="projects"></div>
+    </section>
+    <section id="panel-billing" class="panel">
+      <h1>Billing</h1>
+      <div id="billing" class="muted">Select a workspace.</div>
+    </section>
+    <section id="panel-audit" class="panel">
+      <h1>Audit</h1>
+      <div id="audit" class="muted">Select a workspace.</div>
+    </section>
+  </main>
+  <script src="/assets/dashboard.js"></script>
+</body>
+</html>
