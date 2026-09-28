@@ -44,6 +44,10 @@ STATIC = Path(__file__).parent / "static"
 if STATIC.exists():
     app.mount("/assets", StaticFiles(directory=STATIC), name="assets")
 
+@app.get("/")
+def home():
+    return FileResponse(STATIC / "index.html")
+
 @app.get("/ui")
 def ui():
     return FileResponse(STATIC / "index.html")
