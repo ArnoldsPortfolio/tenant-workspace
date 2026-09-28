@@ -6,6 +6,6 @@ class Settings(BaseSettings):
     database_url: str = "sqlite:///./tenant_workspace.db"
     access_minutes: int = 15
     refresh_days: int = 7
-    cors_origins: str = "http://localhost:3000"
+    cors_origins: str = "http://localhost:3000,http://127.0.0.1:3000"
     def origin_list(self) -> list[str]:
         return [part.strip() for part in self.cors_origins.split(",") if part.strip()]
